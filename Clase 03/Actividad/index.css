@@ -1,0 +1,170 @@
+* {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px; /* 1rem = 10px */
+}
+
+
+.header {
+    height: 100px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 2px solid rgb(203, 199, 199);
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    color: #fff;
+} 
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 0 2rem;
+}
+
+.agregar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.inp {
+    width: 30rem;
+}
+
+.tarea {
+    display: grid;
+    grid-template-columns: 40rem 1fr 1fr;
+    border: 1px solid #fff;
+    padding: 1rem;
+    border-radius: 8px;
+    background: #fff;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.completar__tarea {
+    height: 2rem;
+}
+
+.eliminar__tarea {
+    width: 5rem;
+    padding: .3rem;
+}
+
+
+.conclusion-tareas {
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    margin-top: 50px;
+}
+
+.btn-conclusion {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 20px;
+}
+
+.tarea-completa {
+    color: #0b5ed7;
+}
+
+.tarea-pendiente {
+    color: #bb2d3b;
+}
+
+.lista__tareas {
+    padding: 0;
+}
+
+.display-none {
+    display: none;
+}
+
+.boton-eliminar {
+    display: block; /* Cambia "block" a "none" para ocultar el botón */
+  }
+
+@media (max-width: 894px) { 
+    .tarea {
+        grid-template-columns: 30rem 1fr 1fr;
+    }
+    
+}
+
+@media (max-width: 734px) { 
+    .tarea {
+        grid-template-columns: 25rem 1fr 1fr;
+    }
+    
+}
+
+@media (max-width: 655px) { 
+    .tarea {
+        grid-template-columns: 20rem 1fr 1fr;
+    }
+
+
+    .agregar {
+        gap: 1rem;
+    }
+
+    .inp {
+        width: 25rem;
+    }
+    
+}
+
+@media (max-width: 425px) { 
+    .tarea {
+        grid-template-columns: 10rem 1fr 1fr;
+    }
+
+
+    .agregar {
+        gap: 1rem;
+    }
+
+    .inp {
+        width: 15rem;
+    }
+
+    .btn-conclusion {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+}
+@media (max-width: 320px) { 
+    .tarea {
+        grid-template-columns: 5rem 1fr 1fr;
+    }
+
+
+    .agregar {
+        flex-direction: column;
+    }
+
+    .inp {
+        width: 15rem;
+    }
+
+    .btn-conclusion {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+}

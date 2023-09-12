@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <title>Lista de Tareas</title>
+</head>
+<body style=" background-color: #5a5757;">
+    <header class="header">
+        <h1 class="header__h1">Lista de Tareas</h1>
+    </header>
+
+    <main class="main">
+        <div class="agregar ">
+            <div class="form-floating mb-3 inp">
+                <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" data-input >
+                <label for="floatingInput">Agregar Tarea</label>
+              </div>
+            <button type="button" class="btn btn-primary btn-lg" data-agregar >Agregar</button>
+        </div>
+
+        <div class="lista">
+            <ul class="lista__tareas" data-ul >
+                
+            </ul>
+        </div>
+
+        <div class="conclusion-tareas">
+            <div class="btn-conclusion">
+                <button type="button" class="btn btn-primary btn-lg" data-completo>Tareas Completadas</button>
+                <button type="button" class="btn btn-primary btn-lg" data-pendiente>Tareas Pendientes</button>
+            </div>
+
+            <ul class="lista__tareas display-none" data-conclision>
+                
+            </ul>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <script src="index.js"></script>
+</body>
+</html>
