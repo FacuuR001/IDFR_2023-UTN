@@ -1,0 +1,28 @@
+.encuesta-item-container {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px; 
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: block;
+    transition: transform 0.3s; 
+    margin: 10px 0;
+}
+
+.encuesta-item-container:hover {
+    transform: translateY(-5px); 
+}
+
+.encuesta-item h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.encuesta-item p {
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.ver-encuesta {
+    color: #000;
+}
