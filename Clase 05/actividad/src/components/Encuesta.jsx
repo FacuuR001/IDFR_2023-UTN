@@ -1,11 +1,18 @@
+import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import '../assets/css/components/encuesta.css'
 
-const Encuesta = ({ listaEncuestas, responderEncuesta }) => {
+const Encuesta = ({ listaEncuestas }) => {
     const { id } = useParams(); // Obtiene el ID de la encuesta desde la URL
-    console.log(listaEncuestas);
+    const [seleccionada, setSeleccionada] = useState(false);
     const encuesta = listaEncuestas.find((enc) => enc.id === parseInt(id));
-    console.log("Preguntas: " + encuesta.preguntas);
+
+    const handleOpcionSeleccionada = (preguntaId, opcionId) => {
+        setSeleccionada({
+            ...seleccionada,
+            [preguntaId]: opcionId,
+        });
+    };
 
     return(
         <div>
@@ -19,27 +26,31 @@ const Encuesta = ({ listaEncuestas, responderEncuesta }) => {
             <div className="encuesta-item-container">
                 <div className="encuesta-item">
                     <h2>Preguntas</h2>
-                    <p> {!encuesta.preguntas && <p>Sin preguntas definidas.</p>}
-                    {encuesta.preguntas && encuesta.preguntas.map((pregunta) => (
-                        <div key={pregunta.id}>
+                     {!encuesta.preguntas && <p>Sin preguntas definidas.</p>}
+                    {encuesta.preguntas && encuesta.preguntas.map((pregunta, index) => (
+                        <div key={index}>
                             <p>{pregunta.pregunta}</p>
                             <ol>
                                 {pregunta.opciones.map((opcion) => (
                                     <div key={opcion.id}>
-                                        <label>
-                                            <li>{opcion.texto}</li>
+                                        <label className="opcion-respuesta">
+                                                <input 
+                                                    type="radio" 
+                                                    name={ `opcion_${pregunta.id}` }  
+                                                    onClick={handleOpcionSeleccionada}
+                                                />
+                                                <span className="opcion" >{opcion.texto}</span>
                                         </label>
                                     </div>
                                 ))}
                             </ol>
                         </div>
                     ))}
-                </p>
                 <br />
             </div>
+            {seleccionada && <Link className="enviar-respuesta" to="/respuesta-enviada">Enviar Respuesta</Link>}
         </div>
-
-        <Link to="/">Volver</Link>
+        <Link to="/" className="volver">Volver</Link>
         </div>
     );
 }

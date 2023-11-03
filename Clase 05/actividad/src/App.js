@@ -5,6 +5,7 @@ import Inicio from './pages/Inicio';
 import CrearEncuesta from "./components/CrearEncuesta";
 import Encuesta from "./components/Encuesta";
 import Menu from "./components/Menu";
+import RespuestaEnviada from "./pages/RespuestaEnviada";
 import encuestas from "./data/encuestas.json"
 import './App.css';
 import './assets/css/base/_reset.css'
@@ -12,17 +13,26 @@ import './assets/css/base/_reset.css'
 
 function App() {
   const [listaEncuestas, setListaEncuestas] = useState(encuestas);
-
+  
   const agregarEncuesta = (nuevaEncuesta) => {
     nuevaEncuesta.id = listaEncuestas.length + 1
+    nuevaEncuesta.preguntas = [];
     setListaEncuestas([...listaEncuestas, nuevaEncuesta]);
   };
-    
-  const responderEncuesta = (id, respuestas) => {
-    const encuesta = listaEncuestas.find(enc => enc.id === parseInt(id));
-    encuesta.respuestas = [respuestas];
+
+  const agregarPregunta = (encuestaId, nuevaPregunta) => {
+    setListaEncuestas((prevEncuestas) => {
+      return prevEncuestas.map((encuesta) => {
+        if (encuesta.id === encuestaId) {
+          return {
+            ...encuesta,
+            preguntas: [...encuesta.preguntas, nuevaPregunta],
+          };
+        }
+        return encuesta;
+      });
+    });
   };
-      
 
   return (
     <>
@@ -34,6 +44,7 @@ function App() {
           <Route path="/encuesta/crear" element={
             <CrearEncuesta 
               agregarEncuesta={agregarEncuesta} 
+              agregarPregunta={agregarPregunta}
               />
             } 
           />
@@ -41,10 +52,11 @@ function App() {
           <Route path="/encuesta/:id" element={ 
             <Encuesta 
               listaEncuestas={listaEncuestas} 
-              responderEncuesta={responderEncuesta} 
               />
             } 
           />
+
+          <Route path="/respuesta-enviada" element={<RespuestaEnviada/>}/>
 
           <Route path="*" element={<NotFound/>} />
         </Routes>

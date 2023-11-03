@@ -23,9 +23,9 @@ input[type="text"], textarea {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    margin-bottom: 15px;
     transition: border-color 0.3s;
     resize: none;
+    outline: none;
 }
 
 textarea {
@@ -46,6 +46,18 @@ button {
     transition: background-color 0.3s;
 }
 
+
+
 button:hover {
     background-color: #0056b3;
+}
+.error-form{
+    color: red;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-top: 0;
+}
+
+.ingresar-opciones {
+    margin-bottom: 10px;
 }
