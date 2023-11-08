@@ -100,6 +100,7 @@ const CrearEncuesta = ({ agregarEncuesta, agregarPregunta  }) => {
           <div key={index}>
             <input
               type="text"
+              id='opciones'
               value={opcion}
               onChange={(e) => handleOpcionChange(index, e.target.value)}
               className="ingresar-opciones"
